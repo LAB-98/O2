@@ -1,0 +1,898 @@
+
+/*  CSS Properties https://www.w3schools.com/cssref/index.php
+                   https://w3c.github.io/csswg-drafts/css-align/#column-row-gap */ 
+/* :root cible l'élément <html>
+Noms des propriétés qui sont préfixés par -- (par exemple : --nom-exemple) */
+
+:root {
+    --blue-color: #0065fc;
+    --light-blue-color: #deebff;
+    --grey-color: #d9d9d9;
+    --grey-background: #f2f2f2;
+}
+
+
+/* scroll-behavior compatibilité avec macOS ? x testé */ 
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sélécteur universel * cf https://www.geeksforgeeks.org/what-is-the-use-of-asterisk-selector-in-css */
+
+* {
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.blue-color {
+    color: #0065fc;
+}
+
+
+/* git flexbox https://github.com/mdn/translated-content/blob/main/files/fr/web/css/row-gap/index.md?plain=1 */
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+header .logo img {
+    width: 60px;
+}
+
+header nav a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: inline-block;
+    padding: 33px 35px 0;
+    margin-bottom: 35px;
+    transition: all 0.2s ease-in-out;
+}
+
+header nav a:hover {
+    color: var(--blue-color);
+    border-top-color: var(--blue-color);
+}
+
+header nav a:last-of-type {
+    padding-right: 20px;
+}
+
+/*Utiliser .class .class = .class enfant de .class cf https://stackoverflow.com/questions/31137422/css-first-child-of-children-with-a-class */
+
+.intro-form h1 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+.intro-form p {
+    line-height: 19px;
+    margin-bottom: 20px;
+}
+
+.intro-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 36px;
+}
+
+
+/* We can use an asterisk (*) for intermediate level while selecting an element by:  
+
+grand_parent * grand_child{
+           property : value;
+ }
+  cf https://www.geeksforgeeks.org/what-is-the-use-of-asterisk-selector-in-css/ */
+
+.intro-form form .icon {
+    border: 1px solid var(--grey-background);
+    border-radius: 15px 0px 0px 15px;
+    background-color: var(--grey-background);
+}
+
+.intro-form form .icon i {
+    padding: 13px 18px;
+    line-height: 21px;
+}
+
+.intro-form form input {
+    border: 1px solid var(--grey-background);
+    padding: 13px 17px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    outline: none;
+}
+
+.intro-form form input[type="text"] {
+    min-width: 300px;
+}
+
+.intro-form form .search {
+    color: #fff;
+    background-color: var(--blue-color);
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.intro-form form .search input {
+    color: #fff;
+    background-color: var(--blue-color);
+    border: 1px solid var(--blue-color);
+    cursor: pointer;
+}
+
+.intro-form form .search i {
+    display: none;
+}
+
+.intro-form .filter-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 36px;
+    margin-bottom: 40px;
+}
+
+.intro-form .filter-section h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.intro-form .filter-section ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 36px;
+}
+
+.intro-form .filter-section ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    border: 1px solid var(--grey-color);
+    border-radius: 25px;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* There are two other built-in CSS timing functions:
+
+ease-in: slow at the beginning, fast/abrupt at the end
+ease-out: fast/abrupt at the beginning, slow at the end
+While they make a certain intuitive sense looked at that way, the general “rule” (in quotes) is to use them opposite of how they are named:
+
+ease-in: when things are moving out.
+ease-out: when things are moving in.
+Think of a knight’s squire. When the knight calls them, they better arrive at a run, and slow down into place. When the knight sends them away, they’d better very quickly get moving out of there. */
+
+
+.intro-form .filter-section ul li:hover {
+    background-color: var(--light-blue-color);
+}
+
+.intro-form .filter-section ul li i {
+    color: var(--blue-color);
+}
+
+.intro-form .plus-section {
+    line-height: 19px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 11px;
+    margin-bottom: 40px;
+}
+
+.intro-form .plus-section .icon {
+    color: var(--blue-color);
+    border: 1px solid var(--grey-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+.intro-form .plus-section .icon {
+    font-size: 10px;
+}
+
+.housing-offers {
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    margin-bottom: 60px;
+}
+
+.housing-offers .offers,
+.housing-offers .popular {
+    background-color: var(--grey-background);
+    border-radius: 20px;
+    padding: 45px 40px;
+}
+
+.housing-offers .offers {
+    width: 65%;
+}
+
+.housing-offers .offers h2,
+.housing-offers .popular h2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 23px;
+}
+
+.housing-offers .offers .offers-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.housing-offers .offers .offers-wrapper .offer {
+    background-color: #fff;
+    border-radius: 20px;
+    width: calc((100% - 60px) / 3);
+    padding: 5px;
+}
+
+.housing-offers .offers .offers-wrapper .offer img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 130px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.housing-offers .offers .offers-wrapper .offer .box {
+    padding: 0 15px;
+}
+
+.housing-offers .offers .offers-wrapper .offer .box h3,
+.housing-offers .popular .options-wrapper .option .info h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+.housing-offers .offers .offers-wrapper .offer .box .price,
+.housing-offers .popular .options-wrapper .option .info .price {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+
+.housing-offers .offers .offers-wrapper .offer .box .score,
+.housing-offers .popular .options-wrapper .option .info .score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 2px;
+    color: var(--blue-color);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.housing-offers .offers .offers-wrapper .offer .box .score i.grey,
+.housing-offers .popular .options-wrapper .option .info .score i.grey {
+    color: var(--grey-background);
+}
+
+.housing-offers .offers a.see-more {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.housing-offers .popular {
+    width: 35%;
+}
+
+.housing-offers .popular h2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.housing-offers .popular h2 i {
+    color: var(--blue-color);
+}
+
+.housing-offers .popular .options-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 33px;
+    height: calc(100% - 45px);
+}
+
+.housing-offers .popular .options-wrapper .option {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    min-height: calc((100% - 66px) / 3);
+    cursor: pointer;
+}
+
+.housing-offers .popular .options-wrapper .option img {
+    width: 35%;
+    border-radius: 20px 0 0 20px;
+    object-fit: cover;
+}
+
+.housing-offers .popular .options-wrapper .option .info {
+    padding: 16px 20px 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.housing-offers .popular .options-wrapper .option .info .score {
+    margin-bottom: 5px;
+}
+
+.activities-offers {
+    margin-bottom: 60px;
+}
+
+.activities-offers h2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.activities-offers .activities-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 43px;
+}
+
+.activities-offers .activities-wrapper .activity {
+    width: calc((100% - 129px) / 4);
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.activities-offers .activities-wrapper .activity img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.activities-offers .activities-wrapper .activity h3 {
+    padding: 20px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+footer {
+    background-color: var(--grey-background);
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 45px 70px;
+}
+
+footer ul {
+    width: calc((100% - 40px) / 3);
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+footer ul li {
+    line-height: 19px;
+}
+
+footer ul li.title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 8px;
+}
+
+
+/* media queries ref https://developer.mozilla.org/fr/docs/Web/CSS/@media
+                     https://developer.mozilla.org/fr/docs/Web/CSS/Media_Queries */
+
+
+@media (max-width: 575.98px) {
+    .container {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    header nav {
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+    }
+
+    header nav a {
+        width: 50%;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--grey-background);
+    }
+
+    header nav a:hover {
+        border-color: var(--blue-color);
+    }
+
+    header nav a:last-of-type {
+        padding: 0;
+    }
+
+    .intro-form {
+        padding: 30px 5% 0;
+    }
+
+    .intro-form form {
+        width: 100%;
+    }
+
+    .intro-form form input[type="text"] {
+        width: 73%;
+        min-width: auto;
+    }
+
+    .intro-form form .search {
+        padding: 15px 17px;
+        border: 1px solid var(--blue-color);
+        cursor: pointer;
+    }
+
+    .intro-form form .search input {
+        display: none;
+    }
+
+    .intro-form form .search i {
+        display: flex;
+        font-size: 17px;
+    }
+
+    .intro-form .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 15px;
+    }
+
+    .intro-form .filter-section ul {
+        flex-wrap: wrap;
+        gap: 30px 15px;
+    }
+
+    .intro-form .filter-section ul li {
+        width: calc((100% - 15px) / 2);
+        justify-content: center;
+        font-size: 11px;
+        padding: 14px 10px;
+    }
+
+    .housing-offers {
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .housing-offers .offers,
+    .housing-offers .popular {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .housing-offers .offers {
+        order: 2;
+        background-color: transparent;
+        padding: 0 5%;
+    }
+
+    .housing-offers .offers .offers-wrapper {
+        flex-direction: column;
+    }
+
+    .housing-offers .offers .offers-wrapper .offer {
+        width: 100%;
+        filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        max-height: 200px;
+    }
+
+    .housing-offers .popular {
+        order: 1;
+        padding: 45px 5%;
+    }
+
+    .housing-offers .popular .options-wrapper .option {
+        align-items: stretch;
+    }
+
+    .housing-offers .popular .options-wrapper .option img {
+        height: 140px;
+    }
+
+    .housing-offers .popular .options-wrapper .option .info {
+        height: auto;
+        padding: 16px 20px 16px 0;
+    }
+
+    .activities-offers {
+        padding: 0 5%;
+    }
+
+    .activities-offers .activities-wrapper {
+        flex-direction: column;
+        row-gap: 25px;
+    }
+
+    .activities-offers .activities-wrapper .activity {
+        width: 100%;
+    }
+
+    .activities-offers .activities-wrapper .activity img {
+        height: 250px;
+    }
+
+    footer {
+        padding: 45px 5%;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    footer ul {
+        width: 100%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .container {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    header nav {
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+    }
+
+    header nav a {
+        width: 50%;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--grey-background);
+    }
+
+    header nav a:hover {
+        border-color: var(--blue-color);
+    }
+
+    header nav a:last-of-type {
+        padding: 0;
+    }
+
+    .intro-form {
+        padding: 30px 5% 0;
+    }
+
+    .intro-form form .search {
+        padding: 15px 17px;
+        border: 1px solid var(--blue-color);
+        cursor: pointer;
+    }
+
+    .intro-form form .search input {
+        display: none;
+    }
+
+    .intro-form form .search i {
+        display: flex;
+        font-size: 17px;
+    }
+
+    .intro-form .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 15px;
+    }
+
+    .intro-form .filter-section ul {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .intro-form .filter-section ul li {
+        width: calc((100% - 30px) / 2);
+        justify-content: center;
+    }
+
+    .housing-offers {
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .housing-offers .offers,
+    .housing-offers .popular {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .housing-offers .offers {
+        order: 2;
+        background-color: transparent;
+        padding: 0 5%;
+    }
+
+    .housing-offers .offers .offers-wrapper {
+        flex-direction: column;
+    }
+
+    .housing-offers .offers .offers-wrapper .offer {
+        width: 100%;
+        filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        max-height: 200px;
+    }
+
+    .housing-offers .popular {
+        order: 1;
+        padding: 45px 5%;
+    }
+
+    .housing-offers .popular .options-wrapper .option {
+        align-items: stretch;
+    }
+
+    .housing-offers .popular .options-wrapper .option img {
+        height: 150px;
+    }
+
+    .housing-offers .popular .options-wrapper .option .info {
+        height: auto;
+        padding: 16px 20px 16px 0;
+    }
+
+    .activities-offers {
+        padding: 0 5%;
+    }
+
+    .activities-offers .activities-wrapper {
+        flex-direction: column;
+        row-gap: 25px;
+    }
+
+    .activities-offers .activities-wrapper .activity {
+        width: 100%;
+    }
+
+    .activities-offers .activities-wrapper .activity img {
+        height: 250px;
+    }
+
+    footer {
+        padding: 45px 5%;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    footer ul {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    header nav a {
+        border-top: 2px solid transparent;
+    }
+
+    header nav a:hover {
+        border-top-color: var(--blue-color);
+    }
+
+    .intro-form .filter-section,
+    .intro-form .filter-section ul {
+        column-gap: 15px;
+    }
+
+    .intro-form .filter-section ul li {
+        font-size: 15px;
+        column-gap: 5px;
+        padding: 14px 13px;
+    }
+
+    .housing-offers {
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .housing-offers .offers,
+    .housing-offers .popular {
+        width: 100%;
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        height: 130px;
+    }
+
+    .housing-offers .popular .options-wrapper {
+        flex-direction: row;
+        column-gap: 20px;
+    }
+
+    .housing-offers .popular .options-wrapper .option {
+        width: calc((100% - 40px) / 3);
+        column-gap: 10px;
+    }
+
+    .housing-offers .popular .options-wrapper .option img {
+        width: 40%;
+    }
+
+    .activities-offers .activities-wrapper {
+        column-gap: 20px;
+    }
+
+    .activities-offers .activities-wrapper .activity {
+        width: calc((100% - 60px) / 4);
+    }
+
+    .activities-offers .activities-wrapper .activity h3 {
+        flex: 1;
+    }
+
+    .activities-offers .activities-wrapper .activity img {
+        height: 250px;
+    }
+
+    .housing-offers .popular .options-wrapper .option .info {
+        padding-right: 10px;
+    }
+
+    footer {
+        padding: 45px 40px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    header nav a {
+        border-top: 2px solid transparent;
+    }
+
+    header nav a:hover {
+        border-top-color: var(--blue-color);
+    }
+
+    .intro-form .filter-section ul {
+        column-gap: 30px;
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        height: 130px;
+    }
+
+    .activities-offers .activities-wrapper .activity img {
+        height: 300px;
+    }
+
+    .activities-offers .activities-wrapper .activity h3 {
+        flex: 1;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    header nav a {
+        border-top: 2px solid transparent;
+    }
+
+    header nav a:hover {
+        border-top-color: var(--blue-color);
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        height: 130px;
+    }
+
+    .activities-offers .activities-wrapper .activity img {
+        height: 350px;
+    }
+
+    .activities-offers .activities-wrapper .activity h3 {
+        flex: 1;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+    header nav a {
+        border-top: 2px solid transparent;
+    }
+
+    header nav a:hover {
+        border-top-color: var(--blue-color);
+    }
+
+    .housing-offers .offers .offers-wrapper .offer img {
+        height: 130px;
+    }
+}
+
+@media (min-width: 1600px) {
+    header nav a {
+        border-top: 2px solid transparent;
+    }
+
+    header nav a:hover {
+        border-top-color: var(--blue-color);
+    }
+}
